@@ -1,0 +1,51 @@
+body {
+    margin-bottom: 100px;
+}
+
+
+form {
+    margin: 0 auto;
+    width: 50%; 
+}
+
+
+.comment {
+    color: red;
+}
+
+
+.image-container {
+    width: 100px;
+    height: auto; 
+    max-height: 600px; 
+    overflow: hidden; 
+}
+
+
+.image-container img {
+    width: 100%; 
+    height: auto; 
+}
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.image-container {
+    width: 100%;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
