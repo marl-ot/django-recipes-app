@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock title %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/crispy-bootstrap4@1.0.0-alpha.3/dist/crispy-bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+<body>
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <h1 class="text-center">Сайт с рецептами</h1>
+            <nav class="text-center">
+                <ul class="list-inline">
+                    {% if user.is_authenticated %}
+                        <li class="list-inline-item"><a href="{% url 'home' %}" class="text-white">Главная</a></li>
+                        <li class="list-inline-item"><a href="{% url 'recipe_create' %}" class="text-white">Опубликовать рецепт</a></li>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <li class="list-inline-item"><button type="submit" class="btn btn-link text-white">Выйти</button></li>
+                        </form>
+                    {% else %}
+                        <div class="text-center">
+                            <li class="list-inline-item"><a href="{% url 'home' %}" class="text-white">Главная</a></li>
+                            <li class="list-inline-item"><a href="{% url 'login' %}" class="text-white">Авторизация</a></li>
+                            <li class="list-inline-item"><a href="{% url 'signup' %}" class="text-white">Регистрация</a></li>
+                        </div>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block body %}
+        {% endblock body %}
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            &copy; 2024 Сайт с рецептами
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

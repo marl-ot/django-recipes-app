@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Удалить рецепт
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">Удалить рецепт</h1>
+            <form method="post">
+                {% csrf_token %}
+                <p class="text-center"><button type="submit" class="btn btn-danger">Удалить</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
